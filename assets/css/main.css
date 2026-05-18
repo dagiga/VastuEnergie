@@ -1,0 +1,1725 @@
+/* ================================================
+   VASTU ÉNERGIE — main.css
+   Charte "Terres Sattviques" v1.0
+   ================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ================================================
+   1. VARIABLES (Charte couleurs)
+   ================================================ */
+:root {
+  /* Fonds */
+  --color-bg-main:    #FAF3EA; /* Ivoire — fond de toutes les pages */
+  --color-bg-alt:     #F0E6D3; /* Sable — sections alternées */
+  --color-bg-card:    #FFFDF8; /* Blanc cassé — cartes et panneaux */
+  --color-bg-dark:    #6B4A2A; /* Terre — sections CTA sombres */
+  --color-bg-darkest: #1C1410; /* Encre — footer principal */
+
+  /* Accents */
+  --color-accent:       #C17F4A; /* Ocre — décoratif, icônes, bordures actives */
+  --color-accent-hover: #A86A38;
+  --color-cta:          #D4892A; /* Or — boutons CTA uniquement */
+  --color-cta-hover:    #B8751F;
+  --color-sage:         #7A9E7E; /* Vert sauge — tags, badges */
+  --color-sage-bg:      #D4E8D6;
+
+  /* Bordures */
+  --color-border:        #E8C9A0; /* Lin */
+  --color-border-subtle: rgba(107,74,42,.12);
+
+  /* Textes */
+  --color-text-primary:       #1C1410;
+  --color-text-heading:       #6B4A2A;
+  --color-text-muted:         #8A7E72;
+  --color-text-on-dark:       #FFFDF8;
+  --color-text-on-dark-muted: rgba(255,253,248,.6);
+
+  /* Typographie */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+
+  /* Rayons */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-pill: 999px;
+
+  /* Espacements */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+
+  /* Layout */
+  --container-max: 1140px;
+  --container-pad: 1.5rem;
+}
+
+/* ================================================
+   2. RESET & BASE
+   ================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-primary);
+  background: var(--color-bg-main);
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* ================================================
+   3. TYPOGRAPHIE
+   ================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-text-heading);
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.875rem, 3.5vw, 2.75rem); }
+h3 { font-size: clamp(1.375rem, 2vw, 1.75rem); }
+h4 { font-size: clamp(1.0625rem, 1.5vw, 1.25rem); }
+
+p {
+  margin-bottom: 1em;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Eyebrow / label de section */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+/* ================================================
+   4. LAYOUT
+   ================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.section {
+  padding: var(--space-lg) 0;
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section--dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--color-text-on-dark);
+}
+
+.section--dark .section-label {
+  color: var(--color-border);
+}
+
+/* ================================================
+   5. BOUTONS
+   ================================================ */
+.btn {
+  display: inline-block;
+  padding: 0.8125rem 1.875rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-cta);
+  outline-offset: 3px;
+}
+
+/* CTA principal — or */
+.btn--primary {
+  background: var(--color-cta);
+  color: var(--color-text-on-dark);
+  font-weight: 500;
+}
+.btn--primary:hover {
+  background: var(--color-cta-hover);
+}
+
+/* Secondaire — contour ocre */
+.btn--secondary {
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-text-heading);
+  background: transparent;
+}
+.btn--secondary:hover {
+  background: rgba(193,127,74,.06);
+}
+
+/* Secondaire sur fond sombre */
+.section--dark .btn--secondary {
+  border-color: rgba(255,253,248,.5);
+  color: var(--color-text-on-dark);
+}
+.section--dark .btn--secondary:hover {
+  background: rgba(255,253,248,.08);
+}
+
+/* ================================================
+   6. BANDEAU GÉOGRAPHIQUE
+   ================================================ */
+.geo-banner {
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  padding: 0.4375rem var(--container-pad);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+/* ================================================
+   7. HEADER / NAV
+   ================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg-main);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125rem var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--color-text-heading);
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  height: 85px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.nav-logo span {
+  display: block;
+  font-size: 0.625rem;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.2s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a[aria-current="page"]::after {
+  width: 100%;
+}
+
+.nav-menu a[aria-current="page"] {
+  color: var(--color-text-heading);
+}
+
+.nav-menu .btn {
+  padding: 0.5625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Bouton mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+  color: var(--color-text-heading);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ================================================
+   8. HERO (ACCUEIL)
+   ================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-img-placeholder {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 44%;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-placeholder::after {
+  content: 'Photo à fournir\A(format portrait, min. 900 × 1100 px, WebP)';
+  white-space: pre;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* Quand une vraie photo est disponible : */
+/* <picture class="hero-img">
+     <source srcset="/assets/img/hero.webp" type="image/webp">
+     <img src="/assets/img/hero.jpg" alt="" aria-hidden="true">
+   </picture> */
+.hero-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 44%;
+  overflow: hidden;
+}
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-xl) var(--container-pad);
+  width: 56%;
+  max-width: calc(var(--container-max) * 0.56);
+  margin-left: max(var(--container-pad), calc((100% - var(--container-max)) / 2));
+}
+
+.hero h1 {
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  max-width: 580px;
+}
+
+.hero-lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2.25rem;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ================================================
+   9. BÉNÉFICES
+   ================================================ */
+.benefices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: var(--space-md);
+}
+
+.benefice-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+}
+
+.benefice-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1.25rem;
+  color: var(--color-accent);
+}
+
+.benefice-card h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.375rem;
+}
+
+/* ================================================
+   PROFILS GRID (page Pour qui)
+   ================================================ */
+.profils-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: var(--space-md);
+}
+
+.profil-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.profil-card-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+}
+
+.profil-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.profil-card:hover .profil-card-img img {
+  transform: scale(1.03);
+}
+
+.profil-card-body {
+  padding: 1.75rem;
+}
+
+.profil-card-body h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.375rem;
+}
+
+/* ================================================
+   10. PRÉSENTATION RAPIDE
+   ================================================ */
+.presentation-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.presentation-img {
+  aspect-ratio: 4/5;
+  background: var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.presentation-img picture,
+.presentation-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.presentation-content h2 {
+  margin-bottom: 1.25rem;
+}
+
+.presentation-content .lead {
+  font-size: 1.0625rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ================================================
+   11. ENCART DIAGNOSTIC OFFERT
+   ================================================ */
+.diagnostic-encart {
+  background: var(--color-bg-dark);
+  border-radius: var(--radius-lg);
+  padding: 3rem 3.5rem;
+  text-align: center;
+  color: var(--color-text-on-dark);
+}
+
+.diagnostic-encart .section-label {
+  color: var(--color-border);
+  opacity: 0.7;
+}
+
+.diagnostic-encart h2 {
+  color: var(--color-border); /* Lin #E8C9A0 */
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.diagnostic-encart p {
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: 2rem;
+  font-size: 1.0625rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================================
+   12. TÉMOIGNAGES
+   ================================================ */
+.temoignages-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.temoignage {
+  display: none;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem 3rem;
+  max-width: 740px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.temoignage.is-active {
+  display: block;
+}
+
+.temoignage::before {
+  content: '\201C'; /* guillemet ouvrant */
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--color-border);
+  position: absolute;
+  top: 1rem;
+  left: 2.25rem;
+  opacity: 0.5;
+}
+
+.temoignage blockquote {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  font-style: italic;
+  color: var(--color-text-heading);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.temoignage cite {
+  font-style: normal;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.temoignage cite::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.temoignages-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.temoignages-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.temoignages-dot.is-active {
+  background: var(--color-accent);
+  width: 24px;
+  border-radius: var(--radius-pill);
+}
+
+/* ================================================
+   13. ZONE D'INTERVENTION
+   ================================================ */
+.zone-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.zone-svg-wrap {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.zone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.zone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.zone-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+.zone-item h4 {
+  margin-bottom: 0.25rem;
+  font-size: 1.0625rem;
+}
+
+.zone-item p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ================================================
+   14. SECTION CTA FINAL
+   ================================================ */
+.cta-final-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* ================================================
+   15. FOOTER
+   ================================================ */
+.site-footer {
+  background: var(--color-bg-darkest);
+  color: var(--color-text-on-dark-muted);
+  padding: var(--space-lg) 0 var(--space-md);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.75fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+/* Lien téléphone / email dans le footer */
+.footer-col a[href^="tel:"],
+.footer-col a[href^="mailto:"] {
+  color: var(--color-text-on-dark-muted);
+  transition: color 0.15s;
+}
+.footer-col a[href^="tel:"]:hover,
+.footer-col a[href^="mailto:"]:hover {
+  color: var(--color-text-on-dark);
+}
+
+.footer-brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  color: var(--color-border); /* Lin #E8C9A0 */
+  margin-bottom: 0.625rem;
+}
+
+.footer-brand-desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  max-width: 300px;
+}
+
+.footer-energyup {
+  font-size: 0.8125rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(232,201,160,.12);
+}
+
+.footer-energyup a {
+  color: var(--color-border);
+  text-decoration: underline;
+  text-decoration-color: rgba(232,201,160,.3);
+  transition: text-decoration-color 0.15s;
+}
+
+.footer-energyup a:hover {
+  text-decoration-color: var(--color-border);
+}
+
+.footer-col h4 {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-border);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-col li a {
+  font-size: 0.875rem;
+  color: var(--color-text-on-dark-muted);
+  transition: color 0.15s;
+}
+
+.footer-col li a:hover {
+  color: var(--color-text-on-dark);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(232,201,160,.12);
+  padding-top: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  color: var(--color-text-on-dark-muted);
+  transition: color 0.15s;
+}
+
+.footer-legal a:hover {
+  color: var(--color-text-on-dark);
+}
+
+/* ================================================
+   16. FORMULAIRE CONTACT
+   ================================================ */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
+}
+
+.form-grid .form-group--full {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  margin-bottom: 1.375rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.form-label .required {
+  color: var(--color-accent);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-primary);
+  transition: border-color 0.2s;
+  appearance: none;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-control::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+}
+
+select.form-control {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238A7E72' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-checkbox {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.form-error {
+  display: none;
+  font-size: 0.8125rem;
+  color: #A32D2D;
+  margin-top: 0.375rem;
+}
+
+.form-error.is-visible {
+  display: block;
+}
+
+/* Honeypot caché */
+.form-honeypot {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* Message de confirmation */
+.form-success {
+  display: none;
+  background: var(--color-sage-bg);
+  border: 1px solid var(--color-sage);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  color: var(--color-sage);
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+}
+
+/* ================================================
+   17. TARIFS
+   ================================================ */
+
+/* Grille de base — 2 colonnes */
+.tarifs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: var(--space-md);
+}
+
+/* Variante 3 colonnes (rangée du haut) */
+.tarifs-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ---- Cartes ---- */
+.tarif-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Carte mise en valeur — bordure ocre */
+.tarif-card--featured {
+  border-color: var(--color-accent);
+  border-width: 1.5px;
+}
+
+/* Carte combinée — bordure sauge */
+.tarif-card--bundle {
+  border-color: var(--color-sage);
+  border-width: 1.5px;
+}
+
+/* Carte pleine largeur (professionnel) */
+.tarif-card--full {
+  margin-top: 1rem;
+}
+
+/* ---- En-tête de carte ---- */
+.tarif-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Label catégorie (RÉSIDENTIEL, FONCIER…) */
+.tarif-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+/* Séparateur interne */
+.tarif-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0.125rem 0;
+}
+
+/* ---- Prix ---- */
+.tarif-price-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tarif-price-from {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
+.tarif-price {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-text-heading);
+  line-height: 1.1;
+}
+
+.tarif-price-sub {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+/* ---- Durée ---- */
+.tarif-dur {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+.tarif-dur::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C17F4A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+}
+
+/* ---- Description ---- */
+.tarif-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ---- Badges ---- */
+.tarif-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+/* Badge "Le plus demandé" — sauge */
+.tarif-badge--pop {
+  background: var(--color-sage-bg);
+  color: var(--color-sage);
+}
+
+/* Badge "Offre combinée" — sauge atténué */
+.tarif-badge--combo {
+  background: rgba(122,158,126,.15);
+  color: var(--color-sage);
+}
+
+/* ---- Bloc "Ce que comprend" ---- */
+.tarifs-includes {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.tarifs-includes h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.tarifs-includes__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tarifs-includes__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+.tarifs-includes__list li::before {
+  content: '✓';
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  font-weight: 500;
+}
+
+/* ---- Carte Professionnel — layout interne ---- */
+.tarif-pro-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Titre bloc exemples */
+.tarif-examples-title {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+/* Lignes d'exemples */
+.tarif-examples-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tarif-examples-row:last-of-type {
+  border-bottom: none;
+}
+
+.tarif-examples-label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.tarif-examples-price {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-text-heading);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+/* Note en italique sous les exemples */
+.tarif-pro-footnote {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.875rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-border);
+  font-weight: 300;
+}
+
+/* ---- Note globale de bas de section ---- */
+.tarifs-note-globale {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 1.25rem 0;
+  font-weight: 300;
+}
+
+/* ---- Bandeau réassurance ---- */
+.tarifs-reassurance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.tarifs-reassurance svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+/* ================================================
+   18. PAGE HERO (pages intérieures)
+   ================================================ */
+.page-hero {
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-lg) 0 var(--space-md);
+}
+
+.page-hero h1 {
+  font-style: italic;
+  margin-bottom: 0.875rem;
+}
+
+.page-hero .lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 620px;
+  line-height: 1.65;
+}
+
+/* ================================================
+   19. BREADCRUMB
+   ================================================ */
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-text-heading);
+}
+
+.breadcrumb-sep {
+  color: var(--color-border);
+  font-size: 1rem;
+}
+
+/* ================================================
+   20. BLOG
+   ================================================ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.article-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.article-card:hover {
+  border-color: var(--color-accent);
+}
+
+.article-card-img {
+  aspect-ratio: 16/9;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.article-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.article-card:hover .article-card-img img {
+  transform: scale(1.03);
+}
+
+.article-card-body {
+  padding: 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.article-card h2 {
+  font-size: 1.375rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-card p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.article-read-more {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* Article — corps du texte */
+.article-body {
+  max-width: 720px;
+}
+
+.article-body h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-body p {
+  margin-bottom: 1.375em;
+}
+
+.article-body ul,
+.article-body ol {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.375em;
+}
+
+.article-body li {
+  margin-bottom: 0.375em;
+}
+
+/* ================================================
+   21. MENTIONS LÉGALES / POLITIQUE
+   ================================================ */
+.legal-body {
+  max-width: 720px;
+}
+
+.legal-body h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.legal-body p,
+.legal-body li {
+  font-size: 0.9375rem;
+  margin-bottom: 0.75em;
+}
+
+.legal-body ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1em;
+}
+
+/* ================================================
+   22. LISTES SITUATIONS (page Pour qui)
+   ================================================ */
+.situations-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.situations-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.situations-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+/* Encart avertissement / précision */
+.encart-precision {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
+}
+
+.encart-precision h2 {
+  font-size: 1.375rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Étapes numérotées */
+.etapes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.etapes-list > li,
+.etape-item {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.etape-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-bg-dark);
+  color: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.etape-content h4 {
+  margin-bottom: 0.375rem;
+}
+
+.etape-content p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ================================================
+   23. UTILITAIRES
+   ================================================ */
+.text-center { text-align: center; }
+.text-muted   { color: var(--color-text-muted); }
+.mt-sm  { margin-top: var(--space-sm); }
+.mt-md  { margin-top: var(--space-md); }
+.mb-md  { margin-bottom: var(--space-md); }
+
+/* Prose centrée (blocs de texte narratif en pleine largeur) */
+.prose-center {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.prose-left {
+  max-width: 800px;
+}
+
+/* Sanskrit en italique (page Vastu Shastra) */
+i[lang="sa"] {
+  font-style: italic;
+  color: var(--color-text-heading);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ================================================
+   23. RESPONSIVE
+   ================================================ */
+
+/* --- Tablette --- */
+@media (max-width: 960px) {
+  .benefices-grid,
+  .profils-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .presentation-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .presentation-img {
+    aspect-ratio: 16/7;
+  }
+
+  .zone-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .tarifs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tarifs-grid--3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tarif-pro-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .tarifs-includes__list {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagnostic-encart {
+    padding: 2.5rem 2rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid .form-group--full {
+    grid-column: 1;
+  }
+}
+
+/* --- Mobile --- */
+@media (max-width: 640px) {
+  :root {
+    --space-lg: 3rem;
+    --space-xl: 4rem;
+  }
+
+  /* Nav mobile */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-main);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 0;
+    z-index: 99;
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+  }
+
+  .nav-menu li {
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none;
+    padding: 0.75rem var(--container-pad);
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 0.875rem var(--container-pad);
+    width: 100%;
+  }
+
+  .nav-menu a::after {
+    display: none;
+  }
+
+  .nav-menu .btn {
+    width: 100%;
+    text-align: center;
+    border-radius: var(--radius-md);
+  }
+
+  /* Hero mobile */
+  .hero {
+    min-height: auto;
+    padding: var(--space-lg) 0;
+  }
+
+  .hero-img-placeholder,
+  .hero-img {
+    display: none;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    padding: var(--space-lg) var(--container-pad);
+    margin-left: 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Grilles */
+  .benefices-grid,
+  .profils-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tarifs-grid,
+  .tarifs-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Témoignage */
+  .temoignage {
+    padding: 2rem 1.5rem;
+  }
+
+  .temoignage::before {
+    top: 0.5rem;
+    left: 1.25rem;
+    font-size: 4rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .footer-legal {
+    justify-content: center;
+  }
+
+  /* Contact */
+  .diagnostic-encart {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* --- Très petit mobile --- */
+@media (max-width: 380px) {
+  h1 { font-size: 2.125rem; }
+  h2 { font-size: 1.75rem; }
+}
