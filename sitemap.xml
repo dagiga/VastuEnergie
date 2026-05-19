@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://vastu-energie.be/</loc>
+    <loc>https://vastuenergie.be/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/vastu-shastra/</loc>
+    <loc>https://vastuenergie.be/vastu-shastra/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/methode/</loc>
+    <loc>https://vastuenergie.be/methode/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/harmonisation/</loc>
+    <loc>https://vastuenergie.be/harmonisation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/pour-qui/</loc>
+    <loc>https://vastuenergie.be/pour-qui/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/a-propos/</loc>
+    <loc>https://vastuenergie.be/a-propos/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/contact/</loc>
+    <loc>https://vastuenergie.be/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/tarifs/</loc>
+    <loc>https://vastuenergie.be/tarifs/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/blog/</loc>
+    <loc>https://vastuenergie.be/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://vastu-energie.be/blog/vastu-peb-deux-lectures/</loc>
+    <loc>https://vastuenergie.be/blog/vastu-peb-deux-lectures/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <!-- Mettre à jour lastmod avec la date réelle de publication -->
