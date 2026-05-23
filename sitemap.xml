@@ -56,10 +56,17 @@
   </url>
 
   <url>
+    <loc>https://vastuenergie.be/blog/et-si-votre-maison-influencait-votre-humeur/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+
+  <url>
     <loc>https://vastuenergie.be/blog/vastu-peb-deux-lectures/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <lastmod>2026-05-18</lastmod>
   </url>
-  
+
 </urlset>
