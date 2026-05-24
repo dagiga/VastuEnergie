@@ -1357,6 +1357,20 @@ select.form-control {
   max-width: 720px;
 }
 
+.article-hero-img {
+  margin: 0 0 2.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.article-hero-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
 .article-body h2 {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
