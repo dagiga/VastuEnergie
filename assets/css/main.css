@@ -1302,6 +1302,7 @@ select.form-control {
 }
 
 .article-card-img {
+  display: block;
   aspect-ratio: 16/9;
   background: var(--color-border);
   overflow: hidden;
