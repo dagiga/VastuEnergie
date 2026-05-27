@@ -4,4 +4,4 @@ Allow: /
 Disallow: /mentions-legales/
 Disallow: /politique-confidentialite/
 
-Sitemap: https://vastu-energie.be/sitemap.xml
+Sitemap: https://vastuenergie.be/sitemap.xml
