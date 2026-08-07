@@ -94,21 +94,28 @@
     <loc>https://vastuenergie.be/blog/taux-vibratoire-analyse-vastu/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-07-06</lastmod>
   </url>
 
   <url>
     <loc>https://vastuenergie.be/blog/orientation-maison-vastu/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-07-20</lastmod>
   </url>
 
   <url>
     <loc>https://vastuenergie.be/blog/guide-debutant-vastu-shastra/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://vastuenergie.be/blog/vastu-purusha-mandala/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-07</lastmod>
   </url>
 
 </urlset>
