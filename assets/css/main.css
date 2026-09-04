@@ -1295,6 +1295,24 @@ select.form-control {
   height: 18px;
 }
 
+/* Le texte du bandeau est un seul élément flex : sans ce span, le lien
+   téléphone devient une colonne à part et le numéro se coupe sur mobile. */
+.tarifs-reassurance-text {
+  min-width: 0;
+}
+
+.tarifs-reassurance a {
+  color: var(--color-accent);
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.tarifs-reassurance a:hover,
+.tarifs-reassurance a:focus-visible {
+  color: var(--color-accent-hover);
+}
+
 /* ---- Blocs "service" de la page tarifs ---- */
 .tarif-service {
   margin-bottom: var(--space-lg);
@@ -1756,6 +1774,14 @@ i[lang="sa"] {
 
 /* --- Mobile --- */
 @media (max-width: 640px) {
+  .tarifs-reassurance {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1rem 1.125rem;
+    font-size: 0.875rem;
+  }
+
   :root {
     --space-lg: 3rem;
     --space-xl: 4rem;
